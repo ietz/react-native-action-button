@@ -27,27 +27,6 @@ const TextTouchable = isAndroid
   : TouchableWithoutFeedback;
 
 export default class ActionButtonItem extends Component {
-  static get defaultProps() {
-    return {
-      active: true,
-      spaceBetween: 15,
-      useNativeFeedback: true,
-      activeOpacity: DEFAULT_ACTIVE_OPACITY,
-      fixNativeFeedbackRadius: false,
-      nativeFeedbackRippleColor: "rgba(255,255,255,0.75)"
-    };
-  }
-
-  static get propTypes() {
-    return {
-      active: PropTypes.bool,
-      useNativeFeedback: PropTypes.bool,
-      fixNativeFeedbackRadius: PropTypes.bool,
-      nativeFeedbackRippleColor: PropTypes.string,
-      activeOpacity: PropTypes.number
-    };
-  }
-
   render() {
     const {
       size,
@@ -191,6 +170,23 @@ export default class ActionButtonItem extends Component {
     );
   }
 }
+
+ActionButtonItem.propTypes = {
+  active: PropTypes.bool,
+  useNativeFeedback: PropTypes.bool,
+  fixNativeFeedbackRadius: PropTypes.bool,
+  nativeFeedbackRippleColor: PropTypes.string,
+  activeOpacity: PropTypes.number
+};
+
+ActionButtonItem.defaultProps = {
+  active: true,
+  spaceBetween: 15,
+  useNativeFeedback: true,
+  activeOpacity: DEFAULT_ACTIVE_OPACITY,
+  fixNativeFeedbackRadius: false,
+  nativeFeedbackRippleColor: "rgba(255,255,255,0.75)"
+};
 
 const styles = StyleSheet.create({
   textContainer: {
