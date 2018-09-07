@@ -174,11 +174,9 @@ export default class ActionButton extends Component {
     };
 
     const buttonStyle = {
-      width: this.props.size,
-      height: this.props.size,
-      borderRadius: this.props.size / 2,
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      flex: 1,
     };
 
     const Touchable = getTouchableComponent(this.props.useNativeFeedback);
@@ -217,7 +215,7 @@ export default class ActionButton extends Component {
           onPressOut={this.props.onPressOut}
         >
           <Animated.View
-            style={wrapperStyle}
+            style={[wrapperStyle, this.props.wrapperStyle]}
           >
             <Animated.View style={[buttonStyle, animatedViewStyle]}>
               {this._renderButtonIcon()}
@@ -365,6 +363,11 @@ ActionButton.propTypes = {
   buttonColor: PropTypes.string,
   buttonTextStyle: Text.propTypes.style,
   buttonText: PropTypes.string,
+  wrapperStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.number
+  ]),
 
   offsetX: PropTypes.number,
   offsetY: PropTypes.number,
@@ -397,6 +400,7 @@ ActionButton.defaultProps = {
   buttonColor: "rgba(0,0,0,1)",
   buttonTextStyle: {},
   buttonText: "+",
+  wrapperStyle: {},
   spacing: 20,
   outRangeScale: 1,
   autoInactive: true,

@@ -98,7 +98,8 @@ export default class ActionButtonItem extends Component {
           >
             <View style={[
               buttonStyle,
-              !hideShadow ? {...shadowStyle, ...this.props.shadowStyle} : null
+              !hideShadow ? {...shadowStyle, ...this.props.shadowStyle} : null,
+              this.props.buttonStyle,
             ]}>
               {this.props.children}
             </View>
@@ -176,7 +177,12 @@ ActionButtonItem.propTypes = {
   useNativeFeedback: PropTypes.bool,
   fixNativeFeedbackRadius: PropTypes.bool,
   nativeFeedbackRippleColor: PropTypes.string,
-  activeOpacity: PropTypes.number
+  activeOpacity: PropTypes.number,
+  buttonStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.number
+  ]),
 };
 
 ActionButtonItem.defaultProps = {
